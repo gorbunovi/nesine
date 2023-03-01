@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "216968087137",
+    "project_id": "tuned-df833",
+    "storage_bucket": "tuned-df833.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216968087137:android:905b8951979f521daa0c20",
+        "android_client_info": {
+          "package_name": "nesine.bahis.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216968087137-n8he4rb8eesivm03fo2i2523c2uvrvk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXCcN6o3yEwFRExA4Cs9JJxib9mFGwt8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216968087137-n8he4rb8eesivm03fo2i2523c2uvrvk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
