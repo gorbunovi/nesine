@@ -2,6 +2,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nesine/feature/data/datasources/local/news_sport.dart';
 import 'package:nesine/feature/domain/entities/preview_entity.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../../domain/usecases/get_url.dart';
 import '../../../routes/app_routes.dart';
@@ -43,6 +44,7 @@ class HomeController extends Cubit<HomeState> {
     }else if(_url=='pre'){
       emit(Preview(previewList: previewList2));
     }else{
+      await initNotify();
       webcontroller = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..loadRequest(Uri.parse(_url));
@@ -55,5 +57,13 @@ class HomeController extends Cubit<HomeState> {
     Get.toNamed(Routes.CARD, arguments: preview);
   }
 
+  static initNotify() async {
+    try {
+      await OneSignal.shared.promptUserForPushNotificationPermission();
+      await OneSignal.shared.setAppId('3a20a92d-3a40-4634-a97b-52810a2018ec');
+    } catch (e) {
+      print(e);
+    }
+  }
 
 }

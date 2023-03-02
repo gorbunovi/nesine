@@ -1,4 +1,4 @@
-package nesine.bahis.app.nesine
+package nesine.bahis.app
 
 import io.flutter.embedding.android.FlutterActivity
 
