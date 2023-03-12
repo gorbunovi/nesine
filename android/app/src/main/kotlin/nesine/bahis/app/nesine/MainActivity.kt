@@ -1,4 +1,4 @@
-package nesine.bahis.app
+package b.one.sport
 
 import io.flutter.embedding.android.FlutterActivity
 

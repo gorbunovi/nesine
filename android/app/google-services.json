@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "216968087137",
-    "project_id": "tuned-df833",
-    "storage_bucket": "tuned-df833.appspot.com"
+    "project_number": "502435574997",
+    "project_id": "boneiggor",
+    "storage_bucket": "boneiggor.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:216968087137:android:905b8951979f521daa0c20",
+        "mobilesdk_app_id": "1:502435574997:android:1c966ed526d440c6bc9e5c",
         "android_client_info": {
-          "package_name": "nesine.bahis.app"
+          "package_name": "b.one.sport"
         }
       },
       "oauth_client": [
         {
-          "client_id": "216968087137-n8he4rb8eesivm03fo2i2523c2uvrvk0.apps.googleusercontent.com",
+          "client_id": "502435574997-em2ns0vc3g526fj1i2b83r75tpvk7g0g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDXCcN6o3yEwFRExA4Cs9JJxib9mFGwt8I"
+          "current_key": "AIzaSyCmwvJlYtsUFdj4K2_JFpkFwiHccYgvB4Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "216968087137-n8he4rb8eesivm03fo2i2523c2uvrvk0.apps.googleusercontent.com",
+              "client_id": "502435574997-em2ns0vc3g526fj1i2b83r75tpvk7g0g.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
