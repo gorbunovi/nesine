@@ -16,7 +16,7 @@ abstract class HomeState with _$HomeState {
 
   const factory HomeState.page({required WebViewController webViewController}) = Page;
 
-  const factory HomeState.preview({required List<PreviewEntity> previewList}) = Preview;
+  const factory HomeState.preview({required int gender, required double colory}) = Preview;
 
   const factory HomeState.internetError() = Internet;
 

@@ -21,7 +21,7 @@ mixin _$HomeState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -32,7 +32,7 @@ mixin _$HomeState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -43,7 +43,7 @@ mixin _$HomeState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
@@ -142,7 +142,7 @@ class _$Initial implements Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -156,7 +156,7 @@ class _$Initial implements Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -170,7 +170,7 @@ class _$Initial implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
@@ -272,7 +272,7 @@ class _$Loading implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -286,7 +286,7 @@ class _$Loading implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -300,7 +300,7 @@ class _$Loading implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
@@ -428,7 +428,7 @@ class _$Page implements Page {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -442,7 +442,7 @@ class _$Page implements Page {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -456,7 +456,7 @@ class _$Page implements Page {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
@@ -529,7 +529,7 @@ abstract class _$$PreviewCopyWith<$Res> {
   factory _$$PreviewCopyWith(_$Preview value, $Res Function(_$Preview) then) =
       __$$PreviewCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<PreviewEntity> previewList});
+  $Res call({int gender, double colory});
 }
 
 /// @nodoc
@@ -542,13 +542,18 @@ class __$$PreviewCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? previewList = null,
+    Object? gender = null,
+    Object? colory = null,
   }) {
     return _then(_$Preview(
-      previewList: null == previewList
-          ? _value._previewList
-          : previewList // ignore: cast_nullable_to_non_nullable
-              as List<PreviewEntity>,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int,
+      colory: null == colory
+          ? _value.colory
+          : colory // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -556,20 +561,16 @@ class __$$PreviewCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Preview implements Preview {
-  const _$Preview({required final List<PreviewEntity> previewList})
-      : _previewList = previewList;
+  const _$Preview({required this.gender, required this.colory});
 
-  final List<PreviewEntity> _previewList;
   @override
-  List<PreviewEntity> get previewList {
-    if (_previewList is EqualUnmodifiableListView) return _previewList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_previewList);
-  }
+  final int gender;
+  @override
+  final double colory;
 
   @override
   String toString() {
-    return 'HomeState.preview(previewList: $previewList)';
+    return 'HomeState.preview(gender: $gender, colory: $colory)';
   }
 
   @override
@@ -577,13 +578,12 @@ class _$Preview implements Preview {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Preview &&
-            const DeepCollectionEquality()
-                .equals(other._previewList, _previewList));
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.colory, colory) || other.colory == colory));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_previewList));
+  int get hashCode => Object.hash(runtimeType, gender, colory);
 
   @JsonKey(ignore: true)
   @override
@@ -597,12 +597,12 @@ class _$Preview implements Preview {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
-    return preview(previewList);
+    return preview(gender, colory);
   }
 
   @override
@@ -611,12 +611,12 @@ class _$Preview implements Preview {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
-    return preview?.call(previewList);
+    return preview?.call(gender, colory);
   }
 
   @override
@@ -625,14 +625,14 @@ class _$Preview implements Preview {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (preview != null) {
-      return preview(previewList);
+      return preview(gender, colory);
     }
     return orElse();
   }
@@ -685,10 +685,11 @@ class _$Preview implements Preview {
 }
 
 abstract class Preview implements HomeState {
-  const factory Preview({required final List<PreviewEntity> previewList}) =
-      _$Preview;
+  const factory Preview(
+      {required final int gender, required final double colory}) = _$Preview;
 
-  List<PreviewEntity> get previewList;
+  int get gender;
+  double get colory;
   @JsonKey(ignore: true)
   _$$PreviewCopyWith<_$Preview> get copyWith =>
       throw _privateConstructorUsedError;
@@ -734,7 +735,7 @@ class _$Internet implements Internet {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -748,7 +749,7 @@ class _$Internet implements Internet {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -762,7 +763,7 @@ class _$Internet implements Internet {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
@@ -863,7 +864,7 @@ class _$Empty implements Empty {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -877,7 +878,7 @@ class _$Empty implements Empty {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -891,7 +892,7 @@ class _$Empty implements Empty {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
@@ -1018,7 +1019,7 @@ class _$Error implements Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(WebViewController webViewController) page,
-    required TResult Function(List<PreviewEntity> previewList) preview,
+    required TResult Function(int gender, double colory) preview,
     required TResult Function() internetError,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
@@ -1032,7 +1033,7 @@ class _$Error implements Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WebViewController webViewController)? page,
-    TResult? Function(List<PreviewEntity> previewList)? preview,
+    TResult? Function(int gender, double colory)? preview,
     TResult? Function()? internetError,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
@@ -1046,7 +1047,7 @@ class _$Error implements Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WebViewController webViewController)? page,
-    TResult Function(List<PreviewEntity> previewList)? preview,
+    TResult Function(int gender, double colory)? preview,
     TResult Function()? internetError,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,

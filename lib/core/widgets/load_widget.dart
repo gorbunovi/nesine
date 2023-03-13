@@ -5,28 +5,17 @@ class LoadWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(50),
-          child: AppBar(
-              toolbarHeight: 50,
-              title: const Text('LOAD',
-                style: TextStyle(
-                  color: Color(0xff322316),
-                ),
-              ),
-              centerTitle: true,
-          ),
-        ),
-        body:  const SafeArea(
+
+        body:  SafeArea(
           child: Center(
             child: CircularProgressIndicator(
               color: Color(0xffE9DDC5),
             ),
           ),
         ),
-        bottomNavigationBar: const BottomAppBar(
+        bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
         ),
     );

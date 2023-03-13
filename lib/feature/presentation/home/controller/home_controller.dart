@@ -14,11 +14,7 @@ class HomeController extends Cubit<HomeState> {
   final GetUrl getUrl;
   late String _url;
   late final WebViewController webcontroller;
-  final List<PreviewEntity> previewList = [
-    PreviewEntity(id: 1, title: 'Aleksei Oleynik', diskription: '“Boa-Constrictor” TOP 10 heavyweight UFC fighter! MMA legend ! Proud husband and father !', image: 'https://static.getfitshape.com/user/pride_kharkov_inbox_ru/small_photo.jpg?v=1612344482'),
-    PreviewEntity(id: 1, title: 'Aleksei Oleynik', diskription: '“Boa-Constrictor” TOP 10 heavyweight UFC fighter! MMA legend ! Proud husband and father !', image: 'https://static.getfitshape.com/user/pride_kharkov_inbox_ru/small_photo.jpg?v=1612344482'),
-    PreviewEntity(id: 1, title: 'Aleksei Oleynik', diskription: '“Boa-Constrictor” TOP 10 heavyweight UFC fighter! MMA legend ! Proud husband and father !', image: 'https://static.getfitshape.com/user/pride_kharkov_inbox_ru/small_photo.jpg?v=1612344482'),
-  ];
+
 
   final List<PreviewEntity> previewList2 = NewsSports().previewList;
 
@@ -42,9 +38,9 @@ class HomeController extends Cubit<HomeState> {
     if (_url == 'no internet'){
       emit(const Internet());
     }else if(_url=='pre'){
-      emit(Preview(previewList: previewList2));
+      emit(const Preview(gender: 1, colory: 0));
     }else{
-      await initNotify();
+      // await initNotify(); //онсигнал
       webcontroller = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..loadRequest(Uri.parse(_url));
@@ -52,18 +48,40 @@ class HomeController extends Cubit<HomeState> {
     }
   }
 
-  void toCard(PreviewEntity preview){
-    print('toCard');
-    Get.toNamed(Routes.CARD, arguments: preview);
+  void isSelect(int gender){
+    print("select = $gender");
+    emit(Preview(gender: gender, colory: 0));
   }
 
-  static initNotify() async {
-    try {
-      await OneSignal.shared.promptUserForPushNotificationPermission();
-      await OneSignal.shared.setAppId('3a20a92d-3a40-4634-a97b-52810a2018ec');
-    } catch (e) {
-      print(e);
+  void toCard({required int gender, required int weight, required int height, required int age}){
+    print('toCard');
+    if(gender == 1){
+      emit(Preview(gender: gender, colory: _man(weight: weight, height: height, age: age)));
+    }else {
+      emit(Preview(gender: gender, colory: _woman(weight: weight, height: height, age: age)));
     }
+
   }
+
+  double _man({required int weight, required int height, required int age}){
+    double resault = 10*weight+6.25*height-5*age+5;
+    return resault;
+  }
+
+  double _woman({required int weight, required int height, required int age}){
+    double resault = (10*weight)+(6.25*height)-(5*age)-161;
+    return resault;
+  }
+
+
+//онсигнал
+  // static initNotify() async {
+  //   try {
+  //     await OneSignal.shared.promptUserForPushNotificationPermission();
+  //     await OneSignal.shared.setAppId('3a20a92d-3a40-4634-a97b-52810a2018ec');
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
 }

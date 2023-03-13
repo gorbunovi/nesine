@@ -22,9 +22,11 @@ class HomePage extends StatelessWidget {
                 controller: webController,
               ),
               internetError: () => const NoInternetWidget(),
-              preview: (previewList) =>  PreviewListWidget(
-                previewList: previewList,
-                toCard: (preview) => BlocProvider.of<HomeController>(context).toCard(preview),
+              preview: (gender, colory) =>  PreviewListWidget(
+                gender: gender,
+                colory: colory,
+                isSelect: (select) => BlocProvider.of<HomeController>(context).isSelect(select),
+                toCard: (gender, age, height, weight) => BlocProvider.of<HomeController>(context).toCard(gender: gender, age: age, height: height, weight: weight),
               ),
               loading: () => const core_widgets.LoadWidget(),
               empty: () => const core_widgets.LoadWidget(),
